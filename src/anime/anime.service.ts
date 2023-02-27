@@ -14,7 +14,13 @@ export class AnimeService {
             throw new ForbiddenException("API not available")
         });
         console.log(process.env.API_URL + `anime?q=${animeName}&sfw`);
-        const eventual = res.data?.data[0].title;
+        // const themes = res.data?.data[0].themes[0].name
+        // console.log(themes)
+        let synopsis = res.data?.data[0].synopsis
+        let mutSynopsis = synopsis.replace(/Written by MAL Rewrite/g, "")
+        let resSynopsis = mutSynopsis.replace(/\[|\]/g, "")
+        // console.log("new syn:" + resSynopsis);
+        const eventual = `Title: ${res.data?.data[0].title}\r\nStatus: ${res.data?.data[0].status}\r\nRelease date: ${res.data?.data[0].aired.string}\r\nEpisodes: ${res.data?.data[0].episodes}\r\nSynopsis: ${resSynopsis}\r\n`
         console.log(eventual);
         return eventual;
     }
