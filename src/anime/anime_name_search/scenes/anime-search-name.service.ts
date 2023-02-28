@@ -22,8 +22,9 @@ export class AnimeSearchNameService {
         if (synopsis != undefined) {
             let mutSynopsis = synopsis.replace(regSyn, "")
             let resSynopsis = mutSynopsis.replace(regSynF, "")
-            // console.log("new syn:" + resSynopsis);
-            const eventual = `Title: ${res.data?.data[0].title}\r\nStatus: ${res.data?.data[0].status}\r\nRelease date: ${res.data?.data[0].aired.string}\r\nEpisodes: ${res.data?.data[0].episodes}\r\nSynopsis: ${resSynopsis}\r\n`
+            // console.log(res.data?.data[0]?.images?.jpg?.image_url);
+            const img = res.data?.data[0]?.images?.jpg?.image_url
+            const eventual = `Title: ${res.data?.data[0].title}\r\nStatus: ${res.data?.data[0].status}\r\nRelease date: ${res.data?.data[0].aired.string}\r\nEpisodes: ${res.data?.data[0].episodes}\r\nGrade: ${res.data?.data[0].score}\r\nSynopsis: ${resSynopsis}\r\n${img}`
             console.log(eventual);
             return eventual;
         } else {
