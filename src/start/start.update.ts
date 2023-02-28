@@ -1,4 +1,4 @@
-import {Action, InjectBot, Start, Update} from "nestjs-telegraf";
+import {Action, InjectBot, On, Start, Update} from "nestjs-telegraf";
 import {Context, Telegraf} from "telegraf";
 import {startButtons} from "./buttons/start.buttons";
 import {sayHi} from "./constants/start.constants";
@@ -9,6 +9,12 @@ export class StartUpdate {
 
     @Start()
     async startBot(ctx: Context) {
+        console.log("Bot started")
         await ctx.reply(sayHi, startButtons())
+    }
+
+    @On("text")
+    async nText(ctx: Context) {
+        await ctx.reply("Write something else")
     }
 }

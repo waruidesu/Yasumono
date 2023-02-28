@@ -3,8 +3,8 @@ import { TelegrafModule } from 'nestjs-telegraf';
 import * as LocalSession from 'telegraf-session-local';
 import * as dotenv from "dotenv"
 import { StartModule } from './start/start.module';
+import { AnimeSearchNameModule } from './anime/anime_name_search/anime-search-name.module';
 import { AnimeModule } from './anime/anime.module';
-import { MangaModule } from './manga/manga.module';
 dotenv.config()
 
 const session = new LocalSession({database: 'session_data.js'})
@@ -16,7 +16,6 @@ const session = new LocalSession({database: 'session_data.js'})
       }),
       StartModule,
       AnimeModule,
-      MangaModule
   ],
 })
 export class AppModule {}
