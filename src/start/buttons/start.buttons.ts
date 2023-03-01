@@ -1,9 +1,10 @@
-import {Markup} from "telegraf";
+import { Markup } from 'telegraf';
 
 export const startButtons = () => {
-    return Markup.inlineKeyboard([
-        Markup.button.callback("Anime","animeButton"),
-    ],{
-        columns: 1
-    })
-}
+  return Markup.inlineKeyboard(
+    [Markup.button.callback('Continue', 'animeButton')],
+    {
+      columns: 1,
+    },
+  );
+};

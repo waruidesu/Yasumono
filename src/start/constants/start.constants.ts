@@ -1,1 +1,2 @@
-export const sayHi = "Ohayo, i will help you find information about anime and manga. Specify what you want"
+export const sayHi =
+  'Ohayo. I will help you learn something new from your favorite anime universe.';
